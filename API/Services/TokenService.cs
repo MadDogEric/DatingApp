@@ -2,9 +2,11 @@
 using System.Security.Claims;
 using System.Text;
 using API.Entities;
+using API.Interfaces;
+using API.Services;
 using Microsoft.IdentityModel.Tokens;
 
-namespace API;
+namespace API.Services;
 
 public class TokenService : ITokenService
 {
