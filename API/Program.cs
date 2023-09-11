@@ -16,7 +16,7 @@ builder.Services.AddDbContext<DataContext>(opt =>{
 builder.Services.AddCors();
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-.AddJwtBearer(options => 
+    .AddJwtBearer(options => 
 {
   options.TokenValidationParameters = new TokenValidationParameters
   {
@@ -30,11 +30,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 var app = builder.Build();
 
-app.UseCors(builder => builder
-.AllowAnyHeader()
-.AllowAnyMethod()
-.WithOrigins("https://localhost:4200"));
-
+app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod()
+    .WithOrigins("https://localhost:4200"));
+    
 app.UseAuthentication();
 app.UseAuthorization();
 
